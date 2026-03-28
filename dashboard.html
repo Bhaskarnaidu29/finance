@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bhaskar Finance - Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Top Navigation Bar -->
+    <nav class="top-nav">
+        <div class="brand-logo" style="color: white; margin: 0;">
+            Bhaskar Finance
+        </div>
+        
+        <div class="nav-links">
+            <a data-target="overview" class="active">Overview</a>
+            <a data-target="wallet">My Wallet</a>
+            <a data-target="transactions">Transactions</a>
+            <a data-target="analytics">Analytics</a>
+            <a data-target="settings">Settings</a>
+        </div>
+        
+        <div>
+            <span style="font-weight: bold; margin-right: 15px;" id="username-display">User</span>
+            <button class="btn-logout" id="logout-btn">Logout</button>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+        
+        <!-- SECTION 1: Overview (Default Active) -->
+        <div id="section-overview" class="content-section active">
+            <div class="welcome-banner">
+                <h1>Welcome back to Bhaskar Finance!</h1>
+                <p style="color: #666; margin-top: 5px;">Here is your financial summary</p>
+            </div>
+
+            <!-- Stats grid -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h4>Total Balance</h4>
+                    <div class="value">$152,450.50</div>
+                </div>
+                <div class="stat-card">
+                    <h4>Monthly Income</h4>
+                    <div class="value">$12,840.00</div>
+                </div>
+                <div class="stat-card">
+                    <h4>Monthly Expense</h4>
+                    <div class="value">$4,120.75</div>
+                </div>
+                <div class="stat-card">
+                    <h4>Savings Rate</h4>
+                    <div class="value">68%</div>
+                </div>
+            </div>
+
+            <!-- Transactions Table -->
+            <div class="table-container">
+                <h3>Recent Transactions</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#ID</th>
+                            <th>Name</th>
+                            <th>Category</th>
+                            <th>Amount</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>TRX-001</td>
+                            <td>Amazon Purchase</td>
+                            <td>Shopping</td>
+                            <td style="color: red;">-$120.50</td>
+                            <td>Oct 12, 2030</td>
+                            <td><span class="badge paid">Completed</span></td>
+                        </tr>
+                        <tr>
+                            <td>TRX-002</td>
+                            <td>Salary Incoming</td>
+                            <td>Income</td>
+                            <td style="color: green;">+$5,500.00</td>
+                            <td>Oct 11, 2030</td>
+                            <td><span class="badge paid">Completed</span></td>
+                        </tr>
+                        <tr>
+                            <td>TRX-003</td>
+                            <td>Electricity Bill</td>
+                            <td>Utilities</td>
+                            <td style="color: red;">-$85.00</td>
+                            <td>Oct 10, 2030</td>
+                            <td><span class="badge pending">Pending</span></td>
+                        </tr>
+                        <tr>
+                            <td>TRX-004</td>
+                            <td>Netflix Subscription</td>
+                            <td>Entertainment</td>
+                            <td style="color: red;">-$15.99</td>
+                            <td>Oct 08, 2030</td>
+                            <td><span class="badge failed">Failed</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- SECTION 2: Wallet -->
+        <div id="section-wallet" class="content-section">
+            <div class="section-placeholder">
+                <h2>My Wallet</h2>
+                <p>This section is under construction for the final project submission.</p>
+            </div>
+        </div>
+
+        <!-- SECTION 3: Transactions -->
+        <div id="section-transactions" class="content-section">
+            <div class="section-placeholder">
+                <h2>All Transactions History</h2>
+                <p>This section is under construction for the final project submission.</p>
+            </div>
+        </div>
+
+        <!-- SECTION 4: Analytics -->
+        <div id="section-analytics" class="content-section">
+            <div class="section-placeholder">
+                <h2>Financial Analytics</h2>
+                <p>This section is under construction for the final project submission.</p>
+            </div>
+        </div>
+
+        <!-- SECTION 5: Settings -->
+        <div id="section-settings" class="content-section">
+            <div class="section-placeholder">
+                <h2>Account Settings</h2>
+                <p>This section is under construction for the final project submission.</p>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Scripts -->
+    <script src="dashboard.js"></script>
+</body>
+</html>

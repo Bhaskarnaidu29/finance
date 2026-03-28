@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bhaskar Finance - Login</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="auth-container">
+        <div class="auth-box">
+            <div class="brand-logo">
+                Bhaskar Finance
+            </div>
+            <p style="text-align: center; color: #666; margin-bottom: 20px;">Sign in to your dashboard</p>
+            
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="login-email">Email Address</label>
+                    <input type="email" id="login-email" placeholder="Enter your email" required autocomplete="email">
+                    <div class="error-msg" id="email-error">Invalid Email</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" placeholder="Enter your password" required autocomplete="current-password">
+                    <div class="error-msg" id="password-error">Password must be at least 6 characters</div>
+                </div>
+                
+                <div class="success-msg" id="login-success">Login successful! Loading dashboard...</div>
+
+                <button type="submit" class="btn-primary" id="login-btn">
+                    Sign In
+                </button>
+
+                <div class="auth-nav-link">
+                    Don't have an account? <a href="signup.html">Create Account</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Simple Login Logic
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+            // Prevent the page from refreshing on form submit
+            event.preventDefault();
+            
+            // Get values from input fields
+            let email = document.getElementById('login-email').value;
+            let password = document.getElementById('login-password').value;
+            
+            let isValid = true;
+            
+            // Get saved credentials from local storage
+            let savedEmail = localStorage.getItem('bhaskar_auth_email');
+            let savedPassword = localStorage.getItem('bhaskar_auth_password');
+
+            // Validation block
+            if (!savedEmail || !savedPassword) {
+                 // No account found in memory
+                 let errorEl = document.getElementById('email-error');
+                 errorEl.innerText = "No account found. Please sign up first.";
+                 errorEl.classList.add('show');
+                 isValid = false;
+            } else if (email !== savedEmail || password !== savedPassword) {
+                 // Credentials don't match
+                 let errorEl = document.getElementById('email-error');
+                 errorEl.innerText = "Incorrect email or password.";
+                 errorEl.classList.add('show');
+                 isValid = false;
+            } else {
+                 // Clear any previous errors
+                 document.getElementById('email-error').classList.remove('show');
+                 document.getElementById('password-error').classList.remove('show');
+            }
+            
+            // If valid, log the user in
+            if (isValid) {
+                // Get the username (part before the @ symbol)
+                let username = email.split('@')[0];
+                
+                // Save the currently logged in user
+                localStorage.setItem('bhaskar_current_user', username);
+
+                // Show success message
+                document.getElementById('login-success').classList.add('show');
+                
+                // Change button text
+                document.getElementById('login-btn').innerText = 'Loading...';
+                
+                // Redirect to dashboard page after 1 second
+                setTimeout(function() {
+                    window.location.href = 'dashboard.html';
+                }, 1000);
+            }
+        });
+    </script>
+</body>
+</html>
